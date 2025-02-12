@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Greeting from './components/greeting.vue'
+import Greeting from './components/Greeting.vue'
 
 export default {
   name: 'App',
