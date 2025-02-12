@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Greeting',
+  name: 'greeting',
   data() {
     return {
       message: 'Hello, welcome to Project Alpha!',
@@ -14,3 +14,12 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+@use 'sass:color';
+$primary-color: red;
+
+h1 {
+  color: color.adjust($primary-color, $lightness: -10%);
+}
+</style>

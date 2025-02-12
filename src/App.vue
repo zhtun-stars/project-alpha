@@ -1,14 +1,22 @@
 <template>
-  <Greeting />
+  <greeting />
+  <user :age="age" />
 </template>
 
 <script>
-import Greeting from './components/Greeting.vue'
+import greeting from './components/greeting.vue'
+import user from './components/user.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      age: 30,
+    }
+  },
   components: {
-    Greeting,
+    greeting,
+    user,
   },
 }
 </script>
