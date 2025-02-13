@@ -1,16 +1,14 @@
 <template>
-  <!-- <Greeting /> -->
-  <ClinicalTab />
+  <ClinicalAckPage />
 </template>
 
 <script>
-import ClinicalTab from './components/clinical/ClinicalTab.vue';
-import Greeting from './components/Greeting.vue'
+import ClinicalAckPage from './components/clinical/ClinicalAckPage.vue';
 
 export default {
   name: 'App',
   components: {
-    Greeting, ClinicalTab
+    ClinicalAckPage
   },
 }
 </script>

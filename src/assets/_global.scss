@@ -1,4 +1,4 @@
-@import './_variables.scss';
+@use './_variables.scss' as *;
 
 .ant-radio-group {
   width: 100% !important;

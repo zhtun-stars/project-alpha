@@ -43,12 +43,12 @@ export default {
 
 <style scoped lang="scss">
 @use 'sass:color';
-@import '@/assets/_variables.scss';
+@use '@/assets/_variables.scss' as *;
 
 .custom-tab-group {
   display: flex;
   width: 100%;
-  border: 1px solid #d9d9d9;
+  border: $default-border;
   border-radius: $border-radius-small;
 
 
@@ -58,7 +58,7 @@ export default {
     text-align: center;
     cursor: pointer;
     display: inline-block;
-    border-right: 1px solid #d9d9d9;
+    border-right: $default-border;
 
     &:last-child {
       border-right: none;
@@ -67,7 +67,7 @@ export default {
     &.selected {
       font-weight: bold;
       color: white;
-      background-color: $star-color;
+      background-color: $color-star;
 
       &:first-child {
         border-start-start-radius: $border-radius-small;
