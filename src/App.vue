@@ -1,6 +1,6 @@
 <template>
-  <greeting />
-  <user :age="age" />
+  <greeting :age="age" />
+  <user :age="age" @age-change="updateAge" :updateAgeFn="updateAgeCB" />
 </template>
 
 <script>
@@ -11,8 +11,16 @@ export default {
   name: 'App',
   data() {
     return {
-      age: 30,
+      age: 25,
     }
+  },
+  methods: {
+    updateAge(number) {
+      this.age += number
+    },
+    updateAgeCB(number) {
+      this.age += number
+    },
   },
   components: {
     greeting,

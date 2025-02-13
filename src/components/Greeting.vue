@@ -1,15 +1,16 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
+    <p v-if="age >= 30">{{ message }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'greeting',
+  props: ['age'],
   data() {
     return {
-      message: 'Hello, welcome to Project Alpha!',
+      message: 'You muse be older than 30 years.!',
     }
   },
 }
