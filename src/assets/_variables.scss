@@ -1,5 +1,9 @@
+@use 'sass:color' as color;
+
 $color-star: red;
 $color-default-border: #d9d9d9;
+$color-qa-red: color.adjust($color-star, $lightness: 20%);
+$color-qa-green: color.adjust(greenyellow, $lightness: 20%);
 
 $border-radius-small: 5px;
 $default-border: 1px solid $color-default-border;
