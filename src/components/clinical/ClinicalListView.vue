@@ -44,9 +44,6 @@ export default {
               return true;
             }
           } return false;
-          // item.mission.includes(this.filter)
-          // console.log(this.filter)
-          return true;
         })
         .sort((a, b) => {
           if (!this.sort) {
