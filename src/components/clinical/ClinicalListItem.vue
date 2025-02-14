@@ -69,12 +69,12 @@ export default {
       border-radius: 5px;
 
       &.green {
-        background-color: greenyellow;
+        background-color: $color-qa-green;
         color: black;
       }
 
       &.red {
-        background-color: $color-star;
+        background-color: $color-qa-red;
       }
     }
   }
