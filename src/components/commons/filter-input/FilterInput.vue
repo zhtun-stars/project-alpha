@@ -2,21 +2,21 @@
   <div class="filter-wraper">
     <input class="input" type="text" v-model="filterText" placeholder="Search" />
     <div class="options">
-      <a-popover v-if="columns.length > 0" placement="bottomRight" :overlayStyle="{ minWidth: '200px' }">
+      <a-popover v-if="filterColumns.length > 0" placement="bottomRight" :overlayStyle="{ minWidth: '200px' }">
         <template #content>
-          <FilterSelection :filterValues="columns" @filterChange="filterChange" />
+          <FilterSelection :filterValues="thisFilterColumns" @filterChange="filterChange" />
         </template>
         <a-button type="text">
           <FilterOutlined />
         </a-button>
       </a-popover>
 
-      <a-popover v-if="columns.length > 0" placement="bottomRight" :overlayStyle="{ minWidth: '200px' }">
+      <a-popover v-if="sortColumns.length > 0" placement="bottomRight" :overlayStyle="{ minWidth: '200px' }">
         <template #content>
-          <SortSelection :sortValues="columns" @sortChange="sortChange" />
+          <SortSelection :sortValues="sortColumns" @sortChange="sortChange" />
         </template>
         <a-button type="text">
-          <SortAscendingOutlined v-if="currentSortDirection === 'ACS'" />
+          <SortAscendingOutlined v-if="currentSortDirection === 'ASC'" />
           <SortDescendingOutlined v-else-if="currentSortDirection === 'DES'" />
           <TableOutlined v-else />
         </a-button>
@@ -33,12 +33,24 @@ import { FilterOutlined, SortAscendingOutlined, SortDescendingOutlined, TableOut
 export default {
   name: "FilterInput",
   props: {
-    columns: {
+    filterColumns: {
+      type: Array,
+      default: []
+    },
+    sortColumns: {
       type: Array,
       default: []
     },
   },
-  emits: ["filterChange", "sortingColumn"],
+  emits: {
+    "filterChange":
+    {
+      type: { text: String, columns: Array }
+    }
+    , "sortingColumn": {
+      type: Object
+    }
+  },
   watch: {
     filterText() {
       if (this.timeout) {
@@ -52,11 +64,11 @@ export default {
   data() {
     return {
       filterText: "",
-      filterColumns: this.columns,
+      thisFilterColumns: this.filterColumns,
       sortingColumn: "",
       timeout: null,
       currentSortDirection: "NONE",
-      currentFilterValues: [...this.columns],
+      currentFilterValues: [...this.filterColumns],
     };
   },
   methods: {
@@ -65,7 +77,7 @@ export default {
       this.$emit("sortingColumn", column)
     },
     filterChange(value) {
-      this.currentFilterValues = [...value]
+      this.currentFilterValues = value
       this.$emit("filterChange", { text: this.filterText, columns: this.currentFilterValues });
     }
   },

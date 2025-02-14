@@ -2,7 +2,7 @@
   <ClinicalTab />
   <Divider />
   <a-row>
-    <a-col :span="4">
+    <a-col :span="4" :style="{ minWidth: '300px' }">
       <ClinicalList />
     </a-col>
     <a-col :span="1">

@@ -2,7 +2,7 @@
   <div class="sort-selection-wrapper">
     <div :class="selectedClass(value)" v-for="(value, key) in sortValues" @click="sortChange(value)" :key="key">
       <template v-if="value === currentSort">
-        <SortAscendingOutlined v-if="currentSortDirection === 'ACS'" />
+        <SortAscendingOutlined v-if="currentSortDirection === 'ASC'" />
         <SortDescendingOutlined v-if="currentSortDirection === 'DES'" />
       </template>
       {{ value }}
@@ -41,7 +41,7 @@ export default {
   methods: {
     sortChange(value) {
       this.currentSort = value;
-      this.currentSortDirection = this.currentSortDirection === 'ACS' ? 'DES' : 'ACS';
+      this.currentSortDirection = this.currentSortDirection === 'ASC' ? 'DES' : 'ASC';
       this.$emit('sortChange', { value: this.currentSort, direction: this.currentSortDirection });
     }
   }, components: { SortAscendingOutlined, SortDescendingOutlined }
